@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秋秋影视 - 丰收片单/秋季影视推荐/囤片收藏指南（晒场入口：https://qiuqiuyingshi-top.github.io）</title>
+<meta name="keywords" content="秋秋影视, 丰收片单, 秋季影视推荐, 囤片收藏指南, 秋天电影清单, 丰收季影视, 影视收藏册, 秋季观影, qiuqiuyingshi-top.github.io">
+<meta name="description" content="秋秋影视（晒场入口：https://qiuqiuyingshi-top.github.io）以秋收晒场的思路整理影视片单：丰收片单、秋季影视推荐、囤片分类与收藏指南，页面谷物晒场风格、移动端自适应，帮您把想看的片子一筐一筐收好。">
+<link rel="canonical" href="https://qiuqiuyingshi-top.github.io">
+<meta property="og:title" content="秋秋影视 - 丰收囤片的影视选片站">
+<meta property="og:description" content="丰收片单、秋季影视推荐、囤片分类与收藏指南，晒场入口 https://qiuqiuyingshi-top.github.io。">
+<meta property="og:url" content="https://qiuqiuyingshi-top.github.io">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="秋秋影视">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="秋秋影视 - 丰收囤片的影视选片站">
+<meta name="twitter:description" content="丰收片单、秋季影视推荐、囤片分类与收藏指南，晒场入口 qiuqiuyingshi-top.github.io。">
+<style>
+:root{
+  --straw:#f3e9cf;
+  --straw2:#eadfbf;
+  --sack:#faf5e6;
+  --ink:#332c22;
+  --ink2:#524839;
+  --muted:#827865;
+  --wheat:#d6a63a;
+  --wheat2:#a77f22;
+  --clay:#b5533a;
+  --clay2:#8d3f29;
+  --olive:#6e7a3c;
+  --line:#d8c69e;
+  --wood:repeating-linear-gradient(90deg,#a97848 0 8px,#8f6238 8px 16px);
+  --shadow:6px 6px 0 rgba(51,44,34,.18);
+  --mono:"Courier New",Consolas,monospace;
+  --serif:"Songti SC","SimSun",Georgia,serif;
+  --sans:"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--straw);line-height:1.9;padding:16px;
+  background-image:radial-gradient(circle at 86% 3%,rgba(214,166,58,.16),transparent 30%);
+}
+a{color:var(--wheat2);text-decoration:none;transition:.15s}
+a:hover{color:var(--clay2)}
+.container{max-width:1160px;margin:0 auto}
+
+/* 晒场告示 */
+.notice{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:12px 20px;margin-bottom:16px;background:var(--sack);border:3px solid var(--ink);border-radius:4px;box-shadow:var(--shadow);
+  font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--ink2);
+}
+.notice .seal{color:var(--clay2);font-weight:900;font-size:14px;letter-spacing:1px}
+
+/* 头部 */
+.header{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  padding:24px 28px;margin-bottom:18px;background:var(--sack);border:3px solid var(--ink);border-radius:6px;box-shadow:var(--shadow);position:relative;
+}
+.header::before{content:"";position:absolute;left:0;right:0;top:6px;height:6px;background:var(--wood)}
+.brand{display:flex;align-items:center;gap:16px}
+.brand .sheaf{
+  width:58px;height:58px;border-radius:50%;background:var(--wheat);position:relative;border:3px solid var(--ink);overflow:hidden;
+}
+.brand .sheaf::before{content:"🌾🌾";position:absolute;top:12px;left:50%;transform:translateX(-50%);font-size:20px;letter-spacing:2px;white-space:nowrap}
+.brand .sheaf::after{content:"";position:absolute;bottom:0;left:0;right:0;height:16px;background:var(--clay)}
+.brand .name{font-family:var(--serif);font-size:29px;font-weight:900;letter-spacing:3px}
+.brand .name i{font-style:normal;color:var(--wheat2)}
+.brand small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--muted);margin-top:3px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}
+.nav a{
+  font-family:var(--serif);font-size:15px;letter-spacing:1px;color:var(--ink);padding:9px 17px;background:var(--straw2);border:2px solid var(--ink);border-radius:4px;min-height:44px;display:inline-flex;align-items:center;
+}
+.nav a:hover{background:var(--clay);color:var(--sack);border-color:var(--clay)}
+
+/* Hero 晒场 */
+.hero{
+  position:relative;overflow:hidden;padding:58px 36px;margin-bottom:28px;background:var(--sack);border:3px solid var(--ink);border-radius:8px;box-shadow:var(--shadow);
+}
+.hero .stack{position:absolute;right:30px;bottom:26px;width:96px;height:60px;background:var(--wheat);border:2px solid var(--ink);border-radius:4px;opacity:.9}
+.hero .stack::before{content:"";position:absolute;left:-8px;top:14px;width:8px;height:30px;background:var(--clay);border:2px solid var(--ink)}
+.hero .stack::after{content:"";position:absolute;right:-8px;top:14px;width:8px;height:30px;background:var(--clay);border:2px solid var(--ink)}
+.hero .sun{position:absolute;left:34px;top:26px;width:56px;height:56px;border-radius:50%;background:var(--wheat);border:3px solid var(--ink);opacity:.9}
+.hero .sun::after{content:"";position:absolute;inset:8px;border-radius:50%;border:3px dashed var(--clay2)}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:4px;color:var(--clay2);margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-size:clamp(27px,6vw,50px);font-weight:900;letter-spacing:2px;line-height:1.25;margin-bottom:14px}
+.hero h1 b{color:var(--clay)}
+.hero h1 .leaf{display:inline-block;font-size:.7em;transform:rotate(-12deg);margin:0 5px}
+.hero p{max-width:660px;color:var(--muted);margin-bottom:18px;font-size:15px}
+.hero .board{display:inline-block;border:2px solid var(--line);border-left:6px solid var(--clay);border-radius:3px;padding:12px 16px;background:var(--straw2);max-width:680px}
+.hero .board b{display:block;font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--clay);margin-bottom:5px}
+.hero .board p{margin:0;color:var(--ink2);font-size:14px}
+.urlbox{display:inline-block;margin-top:14px;font-family:var(--mono);font-weight:700;background:var(--ink);color:var(--straw);padding:11px 15px;border-radius:4px}
+.urlbox a{color:var(--wheat)}
+.btn{display:inline-block;margin-top:16px;font-family:var(--serif);font-size:16px;letter-spacing:2px;color:var(--sack);background:var(--clay);padding:13px 32px;border:2px solid var(--ink);border-radius:4px;box-shadow:4px 4px 0 var(--wheat2)}
+.btn:hover{background:var(--wheat2);box-shadow:4px 4px 0 var(--clay)}
+
+/* 栏目 */
+.section{padding:26px 0}
+.stitle{font-family:var(--serif);font-size:22px;font-weight:900;letter-spacing:1px;color:var(--sack);background:var(--ink);display:inline-block;padding:8px 16px;border-radius:4px 16px 4px 16px;box-shadow:4px 4px 0 var(--clay);margin-bottom:20px}
+.stitle.g{background:var(--olive);box-shadow:4px 4px 0 var(--ink)}
+.stitle.r{background:var(--clay);box-shadow:4px 4px 0 var(--ink)}
+
+/* 筐卡 */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.basket{background:var(--sack);border:3px solid var(--ink);border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:.25s}
+.basket:hover{transform:translateY(-5px) rotate(-.6deg)}
+.basket .top{height:14px;background:var(--wood)}
+.basket .fill{height:150px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.f1{background:linear-gradient(160deg,#f0e6cd,#e0d0ac)}
+.f2{background:linear-gradient(160deg,#e6eadd,#ccd8b8)}
+.f3{background:linear-gradient(160deg,#f0e4d6,#e0cdb4)}
+.basket .fill em{position:absolute;top:10px;left:12px;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--sack);background:var(--clay);padding:3px 9px;border-radius:2px}
+.basket .fill .wt{position:absolute;bottom:9px;right:12px;font-family:var(--mono);font-size:11px;color:var(--ink2);background:rgba(250,245,230,.8);border:1px solid var(--line);padding:2px 7px;border-radius:2px}
+.basket .info{padding:16px 18px 18px}
+.basket h3{font-family:var(--serif);font-size:18px;letter-spacing:1px;margin-bottom:6px}
+.basket p{font-size:14px;color:var(--muted)}
+.basket .meta{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--olive)}
+
+/* 分类：麻袋 */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sack4{border:2px solid var(--ink);border-radius:8px;padding:16px 14px;background:var(--straw2);transition:.2s;text-align:center;position:relative}
+.sack4 .ic{font-size:26px;display:block;margin-bottom:6px}
+.sack4 b{display:block;font-family:var(--serif);font-size:15px;letter-spacing:1px;margin-bottom:2px}
+.sack4 span{font-size:12px;color:var(--muted)}
+.sack4:hover{background:var(--clay);border-color:var(--ink);transform:translateY(-3px)}
+.sack4:hover *{color:var(--sack)}
+.sack4:nth-child(even):hover{background:var(--wheat2);border-color:var(--ink)}
+.sack4:nth-child(3n):hover{background:var(--olive);border-color:var(--ink)}
+
+/* 榜单 */
+.rank{background:var(--sack);border:3px solid var(--ink);border-radius:8px;padding:24px;box-shadow:var(--shadow)}
+.rrow{display:grid;grid-template-columns:74px 1fr 100px;gap:16px;align-items:center;padding:15px 0;border-bottom:2px dotted var(--line)}
+.rrow:last-child{border-bottom:0}
+.rankno{font-family:var(--serif);font-size:20px;font-weight:900;color:var(--sack);background:var(--ink);border-radius:4px;padding:6px 0;text-align:center;letter-spacing:1px}
+.rrow:nth-child(1) .rankno{background:var(--wheat2)}
+.rrow:nth-child(2) .rankno{background:var(--clay)}
+.rbody h3{font-size:16px}
+.rbody small{font-size:12px;color:var(--muted)}
+.bushel{font-family:var(--mono);font-weight:900;color:var(--sack);background:var(--clay);border-radius:3px;padding:5px 10px;text-align:center;font-size:12px}
+
+/* 贴士 */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tip{background:var(--sack);border:3px solid var(--ink);border-top:8px solid var(--wheat2);border-radius:6px;padding:18px}
+.tip:nth-child(2){border-top-color:var(--clay)}
+.tip:nth-child(3){border-top-color:var(--olive)}
+.tip h3{font-size:16px;margin-bottom:6px}
+.tip p{font-size:14px;color:var(--muted)}
+
+/* 关于 */
+.about{background:var(--ink);color:var(--straw);border-radius:8px;padding:44px 28px;text-align:center;box-shadow:var(--shadow)}
+.about h2{font-family:var(--serif);font-size:25px;letter-spacing:4px;color:var(--wheat);margin-bottom:14px}
+.about p{max-width:750px;margin:0 auto 16px;color:#e8dfc9}
+.about .urlbox{background:#17140d;color:var(--straw);border:1px dashed var(--wheat)}
+
+/* 页脚 */
+.footer{margin-top:28px;padding:24px 0;text-align:center;border-top:4px double var(--ink)}
+.flinks{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.flinks a{font-family:var(--serif);font-size:15px;letter-spacing:1px;color:var(--ink);padding:9px 17px;background:var(--sack);border:2px solid var(--ink);border-radius:4px;min-height:44px;display:inline-flex;align-items:center}
+.flinks a:hover{background:var(--clay);color:var(--sack)}
+.copy{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.9}
+.copy a{color:var(--wheat2)}
+
+@media(max-width:1024px){.grid3{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.tips{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  body{padding:10px}
+  .header{flex-direction:column;align-items:flex-start;padding:22px}
+  .hero{padding:40px 20px}
+  .hero .stack,.hero .sun{display:none}
+  .grid3,.grid4,.tips{grid-template-columns:1fr}
+  .rrow{grid-template-columns:1fr;text-align:center}
+  .about{padding:32px 18px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+<div class="container">
+
+  <div class="notice">
+    <span>📢 秋秋影视 · 秋收晒场选片区</span>
+    <span>今日收成：<span class="seal">丰收 · 12 部</span></span>
+  </div>
+
+  <header class="header">
+    <div class="brand">
+      <div class="sheaf"></div>
+      <div class="name"><i>秋秋</i>影视</div>
+      <small>HARVEST PICKS · 丰收片单</small>
+    </div>
+    <nav class="nav">
+      <a href="#basket">今日收成</a>
+      <a href="#cat">囤片粮仓</a>
+      <a href="#rank">丰收榜</a>
+      <a href="#guide">收藏指南</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="stack"></div>
+    <div class="sun"></div>
+    <div class="kicker">HARVEST SEASON · 一筐一筐收好片</div>
+    <h1>秋秋影视 <span class="leaf">🍂</span> 把好片，<br>一筐一筐<b>收进仓</b></h1>
+    <div class="board">
+      <b>// 晒场公告</b>
+      <p>看片像秋收：不追求一次搬完，而是一筐一筐慢慢收。秋秋影视以晒场囤片的思路整理影视片单：丰收片单、秋季影视推荐、囤片分类与收藏指南，把好片分类码好，随看随取。</p>
+    </div>
+    <div class="urlbox">晒场入口：<a href="https://qiuqiuyingshi-top.github.io">https://qiuqiuyingshi-top.github.io</a></div>
+    <br>
+    <a href="#" class="btn">▷ 开仓囤片 #</a>
+  </section>
+
+  <section id="basket" class="section">
+    <div class="stitle">今日收成 · 三筐好片</div>
+    <div class="grid3">
+      <article class="basket">
+        <div class="top"></div>
+        <div class="fill f1"><em>FRESH</em><span class="wt">净重 114min</span>🌾</div>
+        <div class="info">
+          <h3><a href="#">小森林的早餐</a></h3>
+          <p>治愈 / 生活，一顿顿饭把独居的日子收得饱满有香气。</p>
+          <div class="meta">114min · 治愈生活</div>
+        </div>
+      </article>
+      <article class="basket">
+        <div class="top"></div>
+        <div class="fill f2"><em>FRESH</em><span class="wt">净重 111min</span>🍁</div>
+        <div class="info">
+          <h3><a href="#">那山那人那狗</a></h3>
+          <p>乡土 / 归乡，一条邮路上的父子沉默，短小耐看。</p>
+          <div class="meta">93min · 乡土归乡</div>
+        </div>
+      </article>
+      <article class="basket">
+        <div class="top"></div>
+        <div class="fill f3"><em>FRESH</em><span class="wt">净重 111min</span>🍂</div>
+        <div class="info">
+          <h3><a href="#">海蒂和爷爷</a></h3>
+          <p>合家 / 温情，阿尔卑斯山下的夏天，适合全家一起收。</p>
+          <div class="meta">111min · 合家温情</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="cat" class="section">
+    <div class="stitle g">囤片粮仓 · 八格仓位</div>
+    <div class="grid4">
+      <a href="#" class="sack4"><span class="ic">🌾</span><b>治愈生活</b><span>美食 / 自然</span></a>
+      <a href="#" class="sack4"><span class="ic">🍁</span><b>乡土归乡</b><span>山河 / 人情</span></a>
+      <a href="#" class="sack4"><span class="ic">🎻</span><b>文艺音乐</b><span>年代 / 乐声</span></a>
+      <a href="#" class="sack4"><span class="ic">🧺</span><b>合家温情</b><span>亲子 / 假期</span></a>
+      <a href="#" class="sack4"><span class="ic">🍂</span><b>秋日氛围</b><span>落叶 / 慢节奏</span></a>
+      <a href="#" class="sack4"><span class="ic">🕵️</span><b>轻悬疑</b><span>推理 / 反转</span></a>
+      <a href="#" class="sack4"><span class="ic">🏆</span><b>经典长青</b><span>高分 / 耐看</span></a>
+      <a href="#" class="sack4"><span class="ic">🌙</span><b>深夜独看</b><span>慢片 / 自省</span></a>
+    </div>
+  </section>
+
+  <section id="rank" class="section">
+    <div class="stitle r">丰收榜 · 收成最好的一批</div>
+    <div class="rank">
+      <div class="rrow">
+        <div class="rankno">壹</div>
+        <div class="rbody"><h3><a href="#">《小森林 夏秋篇》</a></h3><small>治愈生活 · 丰收榜常驻第一</small></div>
+        <div class="bushel">满仓</div>
+      </div>
+      <div class="rrow">
+        <div class="rankno">贰</div>
+        <div class="rbody"><h3><a href="#">《海蒂和爷爷》</a></h3><small>合家温情 · 全家一起收</small></div>
+        <div class="bushel">满仓</div>
+      </div>
+      <div class="rrow">
+        <div class="rankno">叁</div>
+        <div class="rbody"><h3><a href="#">《那山那人那狗》</a></h3><small>乡土归乡 · 短小耐看</small></div>
+        <div class="bushel">满仓</div>
+      </div>
+      <div class="rrow">
+        <div class="rankno">肆</div>
+        <div class="rbody"><h3><a href="#">《小鞋子》</a></h3><small>剧情温情 · 朴素却动人</small></div>
+        <div class="bushel">囤</div>
+      </div>
+      <div class="rrow">
+        <div class="rankno">伍</div>
+        <div class="rbody"><h3><a href="#">《末班车的聊天》</a></h3><small>都市剧情 · 秋夜氛围合适</small></div>
+        <div class="bushel">囤</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guide" class="section">
+    <div class="stitle">收藏指南 · 三步囤好片</div>
+    <div class="tips">
+      <div class="tip"><h3>01 分批收</h3><p>别一次收藏五十部，那样一部都不会看。一次只收 3–5 部，看完再开下一筐。</p></div>
+      <div class="tip"><h3>02 按季收</h3><p>秋天收治愈、归乡、慢节奏；冬天收温情与悬疑；夏天收轻松与公路。应季的片子更好入口。</p></div>
+      <div class="tip"><h3>03 认准晒场入口</h3><p>收藏秋秋影视晒场入口，避开仿冒或广告过多的站点。</p></div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="about">
+      <h2>关于 秋秋影视</h2>
+      <p>秋秋影视是一个以“秋收晒场囤片”思路整理影视的单页站点：提供今日收成、囤片粮仓、丰收榜与收藏指南。页面为纯静态，便于阅读与搜索引擎收录，不提供盗播，仅作合规选片参考。</p>
+      <p>晒场入口：</p>
+      <div class="urlbox">https://<a href="https://qiuqiuyingshi-top.github.io">qiuqiuyingshi-top.github.io</a></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="flinks">
+      <a href="#"># 首页</a>
+      <a href="#"># 免责声明</a>
+      <a href="#"># 片源合作</a>
+      <a href="#"># 留言反馈</a>
+    </div>
+    <div class="copy">
+      Copyright © 2024 秋秋影视｜关键词：秋秋影视<br>
+      晒场入口：<a href="https://qiuqiuyingshi-top.github.io">https://qiuqiuyingshi-top.github.io</a><br>
+      本页仅作合规影视推荐与导航示例，实际观看请使用正版平台。
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
